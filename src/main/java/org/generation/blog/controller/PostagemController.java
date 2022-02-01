@@ -1,10 +1,6 @@
 
 
 
-
-
-
-
 package org.generation.blog.controller;
 
 import org.generation.blog.repository.PostagemRepository;
@@ -51,13 +47,13 @@ public class PostagemController {
 		
 	}
 	
-	@PostMapping
+	@PostMapping("/salvar")
 	public ResponseEntity<Postagem> post (@RequestBody Postagem postagem) {
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Postagem> put (@RequestBody Postagem postagem) {
 		
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
