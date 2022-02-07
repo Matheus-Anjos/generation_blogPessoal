@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.blog.models.Postagem;
 
 @RestController
 @RequestMapping("/postagens")
-@CrossOrigin("*")
+@CrossOrigin(value = "*", allowedHeaders = "*")
 
 public class PostagemController {
 	
@@ -48,13 +50,13 @@ public class PostagemController {
 	}
 	
 	@PostMapping("/salvar")
-	public ResponseEntity<Postagem> post (@RequestBody Postagem postagem) {
+	public ResponseEntity<Postagem> post (@Valid @RequestBody Postagem postagem) {
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
 	
 	@PutMapping("/atualizar")
-	public ResponseEntity<Postagem> put (@RequestBody Postagem postagem) {
+	public ResponseEntity<Postagem> put (@Valid @RequestBody Postagem postagem) {
 		
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
