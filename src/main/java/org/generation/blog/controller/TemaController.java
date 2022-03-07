@@ -46,19 +46,19 @@ public class TemaController {
 		
 	}
 	
-	@PostMapping
+	@PostMapping("/salvar")
 	public ResponseEntity<Tema> post (@Valid @RequestBody Tema tema) {
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Tema> put (@Valid @RequestBody Tema tema) {
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/deletar/{id}")
 
 	public void delete(@PathVariable long id)  {
 
